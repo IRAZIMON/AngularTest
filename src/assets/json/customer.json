@@ -1,0 +1,25 @@
+[
+    {
+        "id": 200,
+        "first_name": "Ron",
+        "last_name": "Sahar",
+        "email": "Ron@gmail.com",
+        "password": 5555
+    },
+
+    {
+        "id": 201,
+        "first_name": "Ronit",
+        "last_name": "Avner",
+        "email": "RonitA@gmail.com",
+        "password": 9999
+    },
+
+    {
+        "id": 202,
+        "first_name": "Beny",
+        "last_name": "Cohen",
+        "email": "BenyCA@gmail.com",
+        "password": 12121
+    }
+]

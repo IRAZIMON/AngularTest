@@ -1,0 +1,27 @@
+[
+    {
+        "id": 300,
+        "company_id": 200,
+        "category_id": "food",
+        "title": "1+1",
+        "description": "buy one get one",
+        "start_date": "09/01/2020",
+        "end_date": "10/01/2020",
+        "amount": 346,
+        "price": 10,
+        "image": "picture"
+    },
+    {
+        "id": 301,
+        "company_id": 201,
+        "category_id": "vacation",
+        "title": "1+1",
+        "description": "buy one get one",
+        "start_date": "19/01/2020",
+        "end_date": "11/02/2020",
+        "amount": 344,
+        "price": 3000,
+        "image": "picture"
+    }
+
+]

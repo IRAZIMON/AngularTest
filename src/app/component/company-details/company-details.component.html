@@ -1,0 +1,26 @@
+
+<div>
+    <h1>Company</h1>
+    <form #my_form="ngForm">
+      
+      <input name="id" #company_id *ngIf="type==='Update'" [disabled]="type==='Update'" type="number" placeholder="id" [(ngModel)]="company.id" >  
+        <br>
+        <input name="name" #company_name="ngModel" required minlength=2 pattern="^[A-Z].*" type="text" placeholder="name" [(ngModel)]="company.name">
+        <span *ngIf="company_name.errors?.required && company_name.touched">Minimal 2 characters is required!</span>
+        <span *ngIf="company_name.errors?.pattern">Invalid name - Must start with a capital letter</span>
+        <br>
+        <input name="email" #company_email="ngModel" required minlength=2 pattern="^[A-Z].*" type="text" placeholder="email" [(ngModel)]="company.email">
+        <span *ngIf="company_email.errors?.required && company_email.touched">Minimal 2 characters is required!</span>
+        <br>
+        <input name="password" #company_password="ngModel" required minlength=8 pattern="^[A-Z].*" type="text" placeholder="password" [(ngModel)]="company.password">
+        <span *ngIf="company_password.errors?.required && company_password.touched">Minimal 8 characters is required!</span>
+        <br>
+        <!-- chek why dont work -->
+        <!-- <button [disabled]="!my_form.form.valid || (type==='Update' && !my_form.form.valid ) " (click)="addOrUpdateCustomer()" >Yalla</button> -->
+        <button mat-raised-button color="primary" (click)="addOrUpdateCompany()">Submit</button>
+ 
+        <!-- dont work -->
+        <button mat-raised-button color="primary" [routerLink]="['/get-all-companies']">Back</button>
+ 
+    </form>
+</div>

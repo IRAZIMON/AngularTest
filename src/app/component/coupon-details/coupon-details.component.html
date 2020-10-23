@@ -1,0 +1,91 @@
+
+
+
+<div>
+    <h3>My Coupon</h3>
+    <form #my_form="ngForm">
+        
+        <input name="id" #coupon_id *ngIf="type==='Update'" [disabled]="type==='Update'" type="number" placeholder="id"
+            [(ngModel)]="coupon.id">
+        <br>
+        <label for="first-name">Company-id</label>
+        <input name="company_id" #coupon_company_id="ngModel" required min="0" pattern="^(\d+)$" type="number"
+            placeholder="company_id" [(ngModel)]="coupon.company_id">
+        <span *ngIf="coupon_company_id.errors?.required && coupon_company_id.touched">Missing Company-Id</span>
+        <span *ngIf="isNegative(coupon_company_id.value)">Company-Id must be a positive value</span>
+        <span *ngIf="coupon_company_id.errors?.pattern">Company-Id must be a perfect Number!</span>
+
+        <br><br>
+        <label for="Choose Category">Choose Category:</label>
+
+        <select name="category_id" #coupon_category_id="ngModel" type="text" placeholder="category_id"
+            [(ngModel)]="coupon.category_id">
+
+            <option selected disabled>Choose Category:</option>
+            <option>Food</option>
+            <option>Vacation</option>
+            <option>Electricity</option>
+            <option>Restaurant</option>
+
+        </select>
+        <span *ngIf="coupon_category_id.errors?.required && coupon_category_id.touched">Missing category_id</span>
+
+        <br><br>
+        <label for="title">Title</label>
+        <input name="title" #coupon_title="ngModel" required minlength=2 type="text" placeholder="title"
+            [(ngModel)]="coupon.title">
+
+
+        <span *ngIf="coupon_title.errors?.required && coupon_title.touched">Missing title</span>
+        <br><br>
+        <label for="start-date">Start-date</label>
+        <input name="start-date" #coupon_start_date="ngModel" required minlength=8 type="datetime-local"
+            placeholder="start-date" [(ngModel)]="coupon.start_date">
+
+        <!-- <span *ngIf="coupon.start_date.touched">Missing start-date</span> -->
+        <br><br>
+        <label for="end">End date</label>
+        <input name="end-date" #coupon_description="ngModel" required minlength=8 type="datetime-local"
+            placeholder="end-date" [(ngModel)]="coupon.end_date">
+
+        <br><br>
+
+        <label for="description">Description</label>
+        <input name="description" #coupon_description="ngModel" required minlength=2 type="text"
+            placeholder="description" [(ngModel)]="coupon.description">
+
+        <span *ngIf="coupon_description.errors?.required && coupon_description.touched">Missing description</span>
+
+        <br> <br>
+        <label for="amount">Amount</label>
+            <input name="amount" #coupon_amount="ngModel" required min="0" pattern="^(\d+)$" type="number"
+                placeholder="amount" [(ngModel)]="coupon.amount">
+            <span *ngIf="coupon_amount.errors?.required && coupon_amount.touched">Missing Amount</span>
+            <span *ngIf="isNegative(coupon_amount.value)">Amount must be a positive value</span>
+            <span *ngIf="coupon_amount.errors?.pattern">Amount must be a perfect Number!</span>
+            <br><br>
+            <label for="price">Price</label>
+            <input name="price" #coupon_price="ngModel" required min="0" type="number" step="0.5" placeholder="price"
+                [(ngModel)]="coupon.price">
+            <span *ngIf="coupon_price.invalid && coupon_price.touched">Missing price</span>
+            <span *ngIf="isNegative(coupon_price.value)">Price must be a positive value</span>
+            <span *ngIf="coupon_price.errors?.pattern">Price must be a perfect Number!</span>
+            <br><br>
+            <label for="Image">Image</label>
+            <input name="image" #coupon_image="ngModel" type="text" placeholder="image" [(ngModel)]="coupon.image">
+
+            <span *ngIf="coupon_image.errors?.required && coupon_image.touched">Missing description</span>
+
+            <br><br>
+            <!-- chek why dont work -->
+            <!-- <button [disabled]="!my_form.form.valid || (type==='Update' && !my_form.form.valid ) " (click)="addOrUpdateCustomer()" >Yalla</button> -->
+            <button mat-raised-button color="primary" (click)="addOrUpdateCoupon()">Submit</button>
+          
+            <!-- dont work -->
+            <button mat-raised-button color="primary" [routerLink]="['/get-all-coupons']">Back</button>
+ 
+            
+    </form>
+</div>
+
+                
