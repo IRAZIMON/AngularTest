@@ -1,9 +1,11 @@
+import { Company } from './../../model/company';
+import { CompanyService } from 'src/app/service/company.service';
 import { CouponService } from './../../service/coupon.service';
 import { Coupon } from 'src/app/model/coupon';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import {Location} from '@angular/common'
 @Component({
   selector: 'app-coupon-details',
   templateUrl: './coupon-details.component.html',
@@ -13,13 +15,16 @@ export class CouponDetailsComponent implements OnInit {
   public id: number;
   public type: string = 'Add';
   public coupon = new Coupon();
-  public getAllcoup:boolean;
+  public getAllcoup: boolean;
+  private companyID: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private couponService: CouponService,
+    private companyService: CompanyService,
     private router: Router,
-    private dataService: DataService) {
+    private dataService: DataService,
+    private location: Location
+    ) {
 
 
     this.id = Number(activatedRoute.snapshot.params.id);
@@ -35,7 +40,15 @@ export class CouponDetailsComponent implements OnInit {
       this.type = 'Add';
     }
 
+    this.companyService.getCompanyDetails().subscribe(
+      (company: Company) => { this.companyID = company.id; this.coupon.company_id=this.companyID}, (err) => { console.log('err') })
+      console.log(this.companyID)
   }
+
+public goBeck():void{
+this.location.back();
+}
+
 
 
   public addOrUpdateCoupon(): void {
@@ -43,29 +56,29 @@ export class CouponDetailsComponent implements OnInit {
     alert(this.coupon.company_id + ' ' + this.coupon.category_id + ' ' + this.coupon.title + ' ' + this.coupon.start_date + ' ' + this.coupon.description + ' ' + this.coupon.end_date + ' ' + this.coupon.image + ' ' + this.coupon.price + ' ' + this.coupon.amount);
     alert(JSON.stringify(this.coupon));
     if (this.id === 0) {
-      this.couponService.addCoupon(this.coupon).subscribe(
+      this.companyService.addCoupon(this.coupon).subscribe(
 
         (res) => { alert('Coupon Added'); },
-        (err) => { alert(err.message); });
+        (err) => { alert(err); });
     } else {
-      this.couponService.updateCoupon(this.coupon).subscribe(
+      this.companyService.updateCoupon(this.coupon).subscribe(
         (res) => { alert('Coupon Updated'); },
         (err) => { alert(err.message); });
     }
 
 
   }
-  navigate():void{
+  navigate(): void {
     this.router.navigateByUrl('/get-all-coupons');
   }
-    
 
- 
+
+
   public isNegative(any: any): boolean {
     return (Number(any) < 0);
   }
 
- 
 
- 
+
+
 }

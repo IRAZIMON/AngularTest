@@ -13,15 +13,20 @@
 
    
     <span class="example-spacer"></span>
-    <!-- <ng-container *ngIf="isLoggedIn; else elseTemplate">
-      <button mat-raised-button color="warn" >Logout</button>
-    </ng-container>
+   <!-- <ng-container *ngIf= "isLoggedIn; then thenTemplate ;else elseTemplate"></ng-container>
+    <ng-template #thenTemplate>
+    <button mat-raised-button color="warn" (click)="logOutDialog()">Logout</button>
+    </ng-template>
     <ng-template #elseTemplate>
-      <button mat-raised-button color="warn">Login</button> -->  
+      <button mat-raised-button color="warn" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</button>
+    </ng-template>
+ -->
+
+       <!-- <button mat-raised-button color="warn">Login</button> -->  
     <!-- </ng-template> -->
     <span class="example-spacer"></span>
     <button mat-raised-button color="warn" *ngIf="!isLoggedIn()" (click)="login()">Login</button>
-    <button mat-raised-button color="warn" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
+    <button mat-raised-button color="warn" *ngIf="isLoggedIn()" (click)="logOutDialog()">Logout</button> 
 
     
   </mat-toolbar>

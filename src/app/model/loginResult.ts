@@ -1,7 +1,7 @@
-export class getLoginClass {
+export class LoginResult {
     public constructor(
         public token?: string,
-        public type?: string,
+        public type?: string
     ) { }
 
 }

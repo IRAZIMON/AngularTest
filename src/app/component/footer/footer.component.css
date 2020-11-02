@@ -1,8 +1,20 @@
-footer {
+/* footer {
     text-align: center;
     clear: both;
     position: relative;
     height: 30px;
     margin-top: 80px;
+    background-color:palevioletred;
+  } */
+
+
+  
+  
+  footer {
+    margin: 0;
+    color: black;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     background-color:palevioletred;
   }

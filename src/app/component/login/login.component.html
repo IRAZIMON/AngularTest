@@ -5,21 +5,21 @@
  
        <img src="assets/images/images.png">
    
-    <input #email_input="ngModel" type="email" required email placeholder="email" name="email" [(ngModel)]="userInformation.email">
+    <input #email_input="ngModel" type="email" required email placeholder="email" name="email" [(ngModel)]="credentials.email">
     <span *ngIf="email_input.touched && email_input.errors?.required" >Missing Email</span>
     <span *ngIf="email_input.touched && email_input.errors?.email">Invalid Email</span>
         
     <br><br>
   
     <input #password_input="ngModel" type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-    required placeholder="password" name="password" [(ngModel)]="userInformation.password">
+    required placeholder="password" name="password" [(ngModel)]="credentials.password">
     <span *ngIf="password_input.touched && password_input.errors?.required" >Missing Password</span>
-   <span *ngIf="password_input.errors?.pattern">Minimum eight characters, at least one letter and one number:   </span> 
+   <span *ngIf="password_input.errors?.pattern">Minimum 8 characters, at least one letter and one number:   </span> 
  
     <br><br> 
     <label for="type">Choose Type</label>
 
-    <select #type_input="ngModel" name="type" required [(ngModel)]="userInformation.type">
+    <select #type_input="ngModel" name="type" required [(ngModel)]="credentials.type">
         <option selected disabled>Choose Type</option>
         <option>Admin</option>
         <option>Customer</option>
@@ -28,9 +28,11 @@
     <span *ngIf="type_input.touched && type_input.errors?.required"> Please choose Type</span>
     <br><br>
     <button mat-raised-button color="warn"(click)="loginToServer()">Login</button>
+
+    
 <!-- delete that -->
     <hr>
-    <p>{{"{"+"email:"+ userInformation.email +","+"password:"+ userInformation.password +","+ "type:"+userInformation.type +"}"}}</p>
+    <p>{{"{"+"email:"+ credentials.email +","+"password:"+ credentials.password +","+ "type:"+credentials.type +"}"}}</p>
 </form>
 </div>
 <!-- add messege to client about the password/Invalid password< -->

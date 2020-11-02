@@ -1,35 +1,50 @@
-import { getLoginClass } from './../../model/getLoginModel';
+import { Credentials } from './../../model/Credentials';
+
 
 import { LoginService } from './../../service/login.service';
 import { Router } from '@angular/router';
-import { userInformation } from './../../model/user-information';
+
 import { Component, OnInit } from '@angular/core';
 
 import { from } from 'rxjs';
+
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-public userInformation= new userInformation();
-  public constructor(private router:Router,private loginService:LoginService) { }
+
+
+
+
+  public credentials = new Credentials();
+
+
+
+  public constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
   public loginToServer(): void {
-    this.loginService.getLogin(this.userInformation).subscribe(
-      (getLoginClass) => {
-        alert(getLoginClass.token+ ' ' + getLoginClass.type);
-        this.loginService.token = getLoginClass.token;
-        this.loginService.type = getLoginClass.type;
+    this.loginService.loginRequest(this.credentials).subscribe(
+      (loginResult) => {
+        sessionStorage.setItem('Authorization', loginResult.token),
+          alert(loginResult.token + ' ' + loginResult.type);
+          this.loginService.token = loginResult.token;
+        this.loginService.type = loginResult.type;
         this.loginService.isLoggedIn = true;
 
         this.router.navigateByUrl(this.loginService.type);
 
       },
-     (err) => { alert(err.message); });
+      (err) => {console.log(err.message); });
   }
+
+
+
+
 
 }
 // change hardcoded type admin in loginmodel

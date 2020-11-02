@@ -10,12 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+
+
+
   constructor(private loginService: LoginService,
      private router: Router,
      private dataService:DataService) { }
 
   ngOnInit(): void {
-
+ 
   
   }
   public openAdmin(): void {
@@ -29,29 +32,30 @@ export class NavbarComponent implements OnInit {
         }
     
       }
-      public isLoggedIn(): boolean{
-        return this.dataService.getLoggedIn();
-      }
+
+       public isLoggedIn(): boolean{
+         return this.dataService.getLoggedIn();
+       }
       
-      public login(): void{
-        // if (confirm('Are you sure that you want to logout?')) {
-        //   this.loginService.token = ('');
-        //   this.loginService.type = ('');
-        this.dataService.setLoggedIn(true);
-        this.router.navigateByUrl('login');
-      // }
-    }
-      public logout(): void{
-        this.dataService.setLoggedIn(false);
+       public login(): void{
+    //       // if (confirm('Are you sure that you want to logout?')) {
+    //      this.loginService.token = ('');
+    //         this.loginService.type = ('');
+         this.dataService.setLoggedIn(true);
+          this.router.navigateByUrl('login');
+    //    }
+      }
+       public logout(): void{
+         this.dataService.setLoggedIn(false);
       }
       
      
     
     
      
-     public About():void{
-        this.router.navigateByUrl('about');
-      }
+    //  public About():void{
+    //     this.router.navigateByUrl('about');
+    //   }
       }
 
      
