@@ -41,7 +41,7 @@ export class CouponDetailsComponent implements OnInit {
     }
 
     this.companyService.getCompanyDetails().subscribe(
-      (company: Company) => { this.companyID = company.id; this.coupon.company_id=this.companyID}, (err) => { console.log('err') })
+      (company: Company) => { this.companyID = company.id; this.coupon.companyId=this.companyID}, (err) => { console.log('err') })
       console.log(this.companyID)
   }
 
@@ -53,7 +53,7 @@ this.location.back();
 
   public addOrUpdateCoupon(): void {
 
-    alert(this.coupon.company_id + ' ' + this.coupon.category_id + ' ' + this.coupon.title + ' ' + this.coupon.start_date + ' ' + this.coupon.description + ' ' + this.coupon.end_date + ' ' + this.coupon.image + ' ' + this.coupon.price + ' ' + this.coupon.amount);
+    alert(this.coupon.companyId + ' ' + this.coupon.category + ' ' + this.coupon.title + ' ' + this.coupon.startDate + ' ' + this.coupon.description + ' ' + this.coupon.endDate + ' ' + this.coupon.image + ' ' + this.coupon.price + ' ' + this.coupon.amount);
     alert(JSON.stringify(this.coupon));
     if (this.id === 0) {
       this.companyService.addCoupon(this.coupon).subscribe(

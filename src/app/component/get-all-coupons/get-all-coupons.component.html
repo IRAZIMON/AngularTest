@@ -4,12 +4,12 @@
     <table>
         <tr>
             <th>Id</th>
-            <th>Company_id</th>
-            <th>Category_id</th>
+            <th>companyId</th>
+            <th>category</th>
             <th>Title</th>
             <th>Description</th>
-            <th>Start_date</th>
-            <th>End_date</th>
+            <th>startDate</th>
+            <th>endDate</th>
             <th>Amount</th>
             <th>Price</th>
             <th>Image</th>
@@ -19,12 +19,12 @@
         </tr>
         <tr *ngFor="let c of coupons">
             <td>{{c.id}}</td>
-            <td>{{c.company_id}}</td>
-            <td>{{c.category_id}}</td>
+            <td>{{c.companyId}}</td>
+            <td>{{c.category}}</td>
             <td>{{c.title}}</td>
             <td>{{c.description}}</td>
-            <td>{{c.start_date}}</td>
-            <td>{{c.end_date}}</td>
+            <td>{{c.startDate}}</td>
+            <td>{{c.endDate}}</td>
             <td>{{c.amount}}</td>
             <td>{{c.price}}</td>
             <td>{{c.image}}</td>

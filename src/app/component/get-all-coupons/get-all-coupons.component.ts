@@ -24,14 +24,14 @@ export class GetAllCouponsComponent implements OnInit {
 
     this.title.setTitle('Get-All-Coupons');
 
-    this.companyService.getCoupons().subscribe(
-      (coupons) => {
-        this.coupons = coupons;
-        this.dataService.setCoupons(this.coupons);
+    // this.companyService.getCoupons().subscribe(
+    //   (coupons) => {
+    //     this.coupons = coupons;
+    //     this.dataService.setCoupons(this.coupons);
 
-      },
-      (err) => { alert(err.message); }
-    );
+    //   },
+    //   (err) => { alert(err.message); }
+    // );
   }
 
 
@@ -61,7 +61,7 @@ export class GetAllCouponsComponent implements OnInit {
        
         this.coupons = coupons;
         if(!(category === "all")){
-        this.coupons = this.coupons.filter(coupon => coupon.category_id === category.toLowerCase());
+        this.coupons = this.coupons.filter(coupon => coupon.category === category.toLowerCase());
         }
         this.dataService.setCoupons(this.coupons);
 
