@@ -1,57 +1,41 @@
 import { Router } from '@angular/router';
-
-import { CouponService } from './../../service/coupon.service';
-import { Coupon } from './../../model/coupon';
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/service/data.service';
 import { Title } from '@angular/platform-browser';
-import { CompanyService } from 'src/app/service/company.service';
-
+import { CustomerService } from 'src/app/service/customer.service';
+import { DataService } from 'src/app/service/data.service';
+import { Coupon } from 'src/app/model/coupon';
 
 @Component({
-  selector: 'app-get-all-coupons',
-  templateUrl: './get-all-coupons.component.html',
-  styleUrls: ['./get-all-coupons.component.css']
+  selector: 'app-purchase-coupons',
+  templateUrl: './purchase-coupons.component.html',
+  styleUrls: ['./purchase-coupons.component.css']
 })
-export class GetAllCouponsComponent implements OnInit {
+export class PurchaseCouponsComponent implements OnInit {
   public coupons: Coupon[];
   location: any;
   constructor(private title: Title,
     private dataService: DataService,
-    private companyService: CompanyService,
+    private customerService: CustomerService,
     private router: Router
    
     ) { }
 
   ngOnInit(): void {
 
-    this.title.setTitle('get-All-Coupons');
+    this.title.setTitle('get-All-purchaseCoupons');
 
-     this.companyService.getCoupons().subscribe(
+     this.customerService.getPurchaseCoupons().subscribe(
        (coupons) => {
          this.coupons = coupons;
-       this.dataService.setCoupons(this.coupons);
+      this.dataService.setCoupons(this.coupons);
 
        },
        (err) => { alert(err.message); }
      );
   }
 
-  deleteCoupon(id: number): void {
-    const action = confirm('Are you sure you want to delete this coupon' + id + '?');
-   if (action) {
-      this.companyService.deleteCoupon(id).subscribe(
-        (res) => { this.coupons = this.coupons.filter(coupon => coupon.id !== id); },
-        (err) => {
-          alert(err.message);
-          this.coupons = this.coupons.filter(coupon => coupon.id !== id);
-        });
-     }
-  }
-
-
   filterCoupon(category: string): void {
-    this.companyService.getCoupons().subscribe(
+    this.customerService.getPurchaseCoupons().subscribe(
       (coupons) => {
        
         this.coupons = coupons;
@@ -65,14 +49,14 @@ export class GetAllCouponsComponent implements OnInit {
     );
   }
     filterCouponMaxPrice(maxPrice: number ): void {
-      this.companyService.getCoupons().subscribe(
+      this.customerService.getPurchaseCoupons().subscribe(
         (coupons) => {
          
           this.coupons = coupons;
           if(maxPrice ){
           this.coupons = this.coupons.filter(coupon => maxPrice>coupon.price);
           }
-          this.dataService.setCoupons(this.coupons);
+           this.dataService.setCoupons(this.coupons);
   
         },
         (err) => { alert(err.message); }
@@ -86,12 +70,10 @@ export class GetAllCouponsComponent implements OnInit {
         this.router.navigate([link + '/' + id]);
     }
 }
+public goBack():void{
+  this.location.back();
+  }
 
-    // let's call our modal window
-   
-    public goBack():void{
-      this.location.back();
-      }
 
 
 }

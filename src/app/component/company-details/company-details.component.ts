@@ -2,8 +2,6 @@ import { AdminService } from './../../service/admin.service';
 import { Company } from './../../model/company';
 import { CompanyService } from './../../service/company.service';
 import { DataService } from './../../service/data.service';
-
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,6 +14,7 @@ export class CompanyDetailsComponent implements OnInit {
   public company = new Company();
   public type: string = 'Add';
   public id: number;
+  location: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -52,11 +51,13 @@ export class CompanyDetailsComponent implements OnInit {
         (res) => { alert('Company Updated'); },
         (err) => { alert(err.message); });
     }
-
-    this.router.navigateByUrl('/get-all-companies');
+    this.router.navigateByUrl('/get-All-Companies');
+  
 
   }
-
+  public goBack():void{
+    this.location.back();
+    }
 
   }
 

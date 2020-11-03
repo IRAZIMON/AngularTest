@@ -1,4 +1,6 @@
-import { ConfirmDialogComponent } from './component/confirm-dialog/confirm-dialog.component';
+
+import { PurchaseCouponsComponent } from './component/purchase-coupons/purchase-coupons.component';
+import { ViewComponent } from './component/view/view.component';
 import { AboutComponent } from './component/about/about.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { CompanyComponent } from './component/company/company.component';
@@ -17,6 +19,7 @@ import { AdminComponent } from './component/admin/admin.component';
 import { CompanyDetailsComponent } from './component/company-details/company-details.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// import { AddCouponComponent } from './component/add-coupon/add-coupon.component';
 
 
 const routes: Routes = [
@@ -36,9 +39,9 @@ const routes: Routes = [
   { path: 'customer-details/:id', component: CustomersDetailsComponent },
   { path: 'coupon-details/:id', component: CouponDetailsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'confirmDialog', component:ConfirmDialogComponent},
-
-
+  { path: 'view/:id', component: ViewComponent },
+  { path: 'purchaseCoupons', component: PurchaseCouponsComponent },
+  // { path: 'addCoupon', component: AddCouponComponent },
 ];
 
 @NgModule({

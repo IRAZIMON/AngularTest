@@ -14,7 +14,6 @@
     <input #password_input="ngModel" type="password" 
     required placeholder="password" name="password" [(ngModel)]="credentials.password">
     <span *ngIf="password_input.touched && password_input.errors?.required" >Missing Password</span>
-    <!-- <span *ngIf="password_input.errors?.pattern">Minimum 8 characters, at least one letter and one number:   </span>  --> -->
  
     <br><br> 
     <label for="type">Choose Type</label>
@@ -35,11 +34,5 @@
     <p>{{"{"+"email:"+ credentials.email +","+"password:"+ credentials.password +","+ "type:"+credentials.type +"}"}}</p>
 </form>
 </div>
-<!-- add messege to client about the password/Invalid password< -->
-<!-- 'minimum eight characters ,at least one letter and one number
-Lowercase letters
-Uppercase letters
-Numbers
-Special characters)(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}' -->
 
 

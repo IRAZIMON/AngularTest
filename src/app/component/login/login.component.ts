@@ -47,6 +47,6 @@ export class LoginComponent implements OnInit {
 
 
 }
-// change hardcoded type admin in loginmodel
+
 
 

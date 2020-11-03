@@ -45,7 +45,7 @@ export class CouponDetailsComponent implements OnInit {
       console.log(this.companyID)
   }
 
-public goBeck():void{
+public goBack():void{
 this.location.back();
 }
 

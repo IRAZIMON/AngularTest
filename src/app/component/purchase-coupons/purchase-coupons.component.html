@@ -32,13 +32,11 @@
             <td>
                 
                 <mat-icon (click)="getNavigation('view', c.id)">account_box</mat-icon>
-                <mat-icon fxFlex="10%" [routerLink]="['/coupon-details/'+c.id]" routerLinkActive="router-link-active">mode_edit</mat-icon>
-                <mat-icon fxFlex="10%" (click)="deleteCoupon(c.id)">delete</mat-icon>
         </tr>
     </table>
     <br>
     <button mat-raised-button color="accent" [routerLink]="['/coupon-details/'+0]"
-        routerLinkActive="router-link-active">Add Coupon</button>
+        routerLinkActive="router-link-active">Buy Coupon</button>
         <span class="example-spacer"></span>
   
         <select #category (change)="filterCoupon(category.value)">

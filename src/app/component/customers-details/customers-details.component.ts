@@ -16,6 +16,7 @@ export class CustomersDetailsComponent implements OnInit {
   submitForm: FormGroup;
   public type: string = 'Add';
   public id: number;
+  location: any;
 
 
 
@@ -47,7 +48,7 @@ export class CustomersDetailsComponent implements OnInit {
 
   public addOrUpdateCustomer(): void {
 
-    alert(this.customer.first_name + ' ' + this.customer.last_name + ' ' + this.customer.email + ' ' + this.customer.password);
+    alert(this.customer.firstName + ' ' + this.customer.lastName+ ' ' + this.customer.email + ' ' + this.customer.password);
     alert(JSON.stringify(this.customer));
     if (this.id === 0) {
       this.adminService.addCustomer(this.customer).subscribe(
@@ -60,11 +61,11 @@ export class CustomersDetailsComponent implements OnInit {
         (err) => { alert(err.message); });
     }
 
-    //  this.router.navigateByUrl('/get-all-customers');
+     this.router.navigateByUrl('/get-all-customers');
 
   }
 
-  // navigateBack():void{
-  //   this.router.navigateByUrl('get-all-customers');
-  // }
+  public goBack():void{
+    this.location.back();
+    }
 }

@@ -33,4 +33,7 @@ export class CompanyComponent implements OnInit {
     this.getAllcoup=true;
    
   }
+
+
+
 }

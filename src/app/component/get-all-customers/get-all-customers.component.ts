@@ -54,10 +54,6 @@ updateRow: number;
         const action = confirm('Are you sure you want to delete  this customer' + id + '?');
          if (action) {
            this.adminService.deleteCustomer(id).subscribe(
-     
-             // (res) => { this.products = this.products.filter(product => product.id !== id); },
-             // (err) => { alert(err.message); });
-     
             (res) => { this.customers= this.customers.filter(customer => customer.id !== id); },
              (err) => {
                alert(err.message);
@@ -65,9 +61,17 @@ updateRow: number;
             });
          }
         } 
+
+        getNavigation(link, id){
+          if(id === ''){
+              this.router.navigate([link]);
+          } else {
+              this.router.navigate([link + '/' + id]);
+          }
+
      }
         
-       
+    }     
 
 
  

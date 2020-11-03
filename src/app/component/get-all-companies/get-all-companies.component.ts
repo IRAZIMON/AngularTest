@@ -15,38 +15,39 @@ import { MatTableDataSource } from '@angular/material/table';
 export class GetAllCompaniesComponent implements OnInit{
   public companies: Company[];
   dataSource: MatTableDataSource<Company[]>;
+  location: any;
 
   constructor(private title: Title,
     private dataService: DataService,
     private adminService: AdminService,
     private router : Router) { }
 
-  ngOnInit(): void {
-    this.title.setTitle('Get-All-Companies');
-
-    this.adminService.getCompanies().subscribe(
-         (companies) => { this.companies = companies;
-                         this.dataService.setCompanies(companies);
-         },
-         (err) => { alert(err.message); }
-       );
-     }
-    
+    ngOnInit(): void {
+      this.title.setTitle('Get-All-Companies');
   
+      this.adminService.getCompanies().subscribe(
+         (companies)  => { this.companies = companies;
+                           this.dataService.setCompanies(this.companies);
+  
+           },
+           (err) => { alert(err.message); }
+         );
+       }
+    
+     getNavigation(link, id){
+      if(id === ''){
+          this.router.navigate([link]);
+      } else {
+          this.router.navigate([link + '/' + id]);
+      }
    
-     //public updateCompany(): void {
-       //   alert('Update Company');
-       // }
-     
+  
+    }
        public deleteCompany(id: number): void {
-        const action=this.router.navigateByUrl('/confirm-dialog');
-        //  const action = confirm('Are you sure you want to delete this company ' + id + '?');
+        const action = confirm('Are you sure you want to delete this company ' + id + '?');
          if (action) {
            this.adminService.deleteCompany(id).subscribe(
-     
-             // (res) => { this.products = this.products.filter(product => product.id !== id); },
-             // (err) => { alert(err.message); });
-     
+
              (res) => { this.companies = this.companies.filter(company => company.id !== id); },
              (err) => {
                alert(err.message);
@@ -54,11 +55,11 @@ export class GetAllCompaniesComponent implements OnInit{
              });
          }
         }
-      //  ngAfterViewInit() {
-      //   this.dataSource.paginator = this.paginator;
-      // }
+      
    
-     
+      public goBack():void{
+        this.location.back();
+        }
     }
      
    

@@ -15,12 +15,11 @@
         <input name="password" #company_password="ngModel" required minlength=8 pattern="^[A-Z].*" type="text" placeholder="password" [(ngModel)]="company.password">
         <span *ngIf="company_password.errors?.required && company_password.touched">Minimal 8 characters is required!</span>
         <br>
-        <!-- chek why dont work -->
-        <!-- <button [disabled]="!my_form.form.valid || (type==='Update' && !my_form.form.valid ) " (click)="addOrUpdateCustomer()" >Yalla</button> -->
+        
         <button mat-raised-button color="primary" (click)="addOrUpdateCompany()">Submit</button>
  
-        <!-- dont work -->
-        <button mat-raised-button color="primary" [routerLink]="['/get-all-companies']">Back</button>
+   
+        <button mat-raised-button color="primary"  (click)="goBack()">Back</button>
  
     </form>
 </div>

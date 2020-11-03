@@ -17,7 +17,6 @@
 
         <br><br>
         <label for="Choose Category">Choose Category:</label>
-
         <select name="category" #coupon_category="ngModel" type="text" placeholder="Category"
             [(ngModel)]="coupon.category">
 
@@ -74,12 +73,10 @@
             <span *ngIf="coupon_image.errors?.required && coupon_image.touched">Missing image</span>
 
             <br><br>
-            <!-- chek why dont work -->
-            <!-- <button [disabled]="!my_form.form.valid || (type==='Update' && !my_form.form.valid ) " (click)="addOrUpdateCustomer()" >Yalla</button> -->
+          
             <button mat-raised-button color="primary" (click)="addOrUpdateCoupon()">Submit</button>
           
-            <!-- dont work -->
-            <button mat-raised-button color="primary" (click)="goBeck()">Back</button>
+            <button mat-raised-button color="primary" (click)="goBack()">Back</button>
  
             
     </form>

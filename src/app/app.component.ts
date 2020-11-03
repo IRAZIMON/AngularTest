@@ -17,17 +17,6 @@ export class AppComponent {
 
   public constructor(private loginService: LoginService, private router: Router) { }
 
-//   public logOutDialog(): void {
-//     if (confirm('Are you sure that you want to logout?')) {
-//       this.loginService.token = ('');
-//       this.loginService.type = ('');
-//       this.router.navigateByUrl('login');
-//     }
-
-//   }
-//   public isLoggedIn():boolean{
-//     return this.loginService.isLoggedIn;
-//   }
 
   
  }

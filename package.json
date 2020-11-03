@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
     "@angular2-material/checkbox": "^2.0.0-alpha.8-3",
+    "bootstrap": "^4.5.3",
     "compress-images": "^1.9.5",
     "material-design-icons": "^3.0.1",
     "pngjs": "^5.0.0",

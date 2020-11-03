@@ -25,7 +25,6 @@ import { GetAllCompaniesComponent } from './component/get-all-companies/get-all-
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { GetAllCustomersComponent } from './component/get-all-customers/get-all-customers.component';
 import { CustomersDetailsComponent } from './component/customers-details/customers-details.component';
-import { CouponComponent } from './component/coupon/coupon.component';
 import { GetAllCouponsComponent } from './component/get-all-coupons/get-all-coupons.component';
 import { CouponDetailsComponent } from './component/coupon-details/coupon-details.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -35,8 +34,11 @@ import { CompanyComponent } from './component/company/company.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { AboutComponent } from './component/about/about.component';
 import { MainComponent } from './component/main/main.component';
-import { ConfirmDialogComponent } from './component/confirm-dialog/confirm-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ViewComponent } from './component/view/view.component';
+import { PurchaseCouponsComponent } from './component/purchase-coupons/purchase-coupons.component';
+// import { AddCouponComponent } from './component/add-coupon/add-coupon.component';
+
 
 
 @NgModule({
@@ -50,7 +52,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     GetAllCustomersComponent,
     CustomersDetailsComponent,
     AdminComponent,
-    CouponComponent,
     GetAllCouponsComponent,
     CouponDetailsComponent,
     CustomerComponent,
@@ -58,7 +59,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     FooterComponent,
     AboutComponent,
     MainComponent,
-    ConfirmDialogComponent,
+    ViewComponent,
+    PurchaseCouponsComponent,
+    // AddCouponComponent,
+  
    
 
   ],

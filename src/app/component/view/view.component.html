@@ -1,0 +1,70 @@
+ <div>
+  <h3>My Coupon</h3>
+  <form #my_form="ngForm">
+      
+      <p name="id" #coupon_id type="number" placeholder="Id" [(ngModel)]="coupon.id"></p>
+      <br>
+      <label for="companyId">Company-id</label>
+      <p name="companyId" #coupon_companyId="ngModel"  type="number" [(ngModel)]="coupon.companyId"></p>
+     
+      <br><br>
+      <label for="Choose Category">Choose Category:</label>
+      <p name="category" #coupon_category="ngModel" type="text" 
+          [(ngModel)]="coupon.category">
+
+          <option selected disabled>Choose Category:</option>
+          <option>Food</option>
+          <option>Vacation</option>
+          <option>Electricity</option>
+          <option>Restaurant</option>
+
+      </p>
+  
+
+      <br><br>
+      <label for="title">Title</label>
+      <p name="title" #coupon_title="ngModel" type="text" [(ngModel)]="coupon.title"></p>
+     
+
+      <br><br>
+      <label for="startDate">Start-date</label>
+      <p name="startDate" #coupon_start_date="ngModel"  type="date"
+          [(ngModel)]="coupon.startDate"><p>
+    
+      <br><br>
+      <label for="endDate">End-date</label>
+      <p name="endDate" #coupon_end_date="ngModel"  type="date"
+         [(ngModel)]="coupon.endDate"></p>
+         
+      <br><br>
+
+      <label for="description">Description</label>
+      <p name="description" #coupon_description="ngModel" type="text" [(ngModel)]="coupon.description"></p>
+      
+
+      <br> <br>
+      <label for="amount">Amount</label>
+          <p name="amount" #coupon_amount="ngModel"  type="number" [(ngModel)]="coupon.amount"></p>
+          
+          <br><br>
+          <label for="price">Price</label>
+          <p name="price" #coupon_price="ngModel"  type="number" step="0.5" 
+              [(ngModel)]="coupon.price"><p>
+          
+          <br><br>
+          <label for="Image">Image</label>
+          <p name="image" #coupon_image="ngModel" type="text"  [(ngModel)]="coupon.image"></p> 
+
+         
+      
+        
+         
+          <!-- <button mat-raised-button color="primary" (click)="goBeck()">Back</button> -->
+
+          
+  <!-- </form>
+</div> -->
+
+
+  
+    

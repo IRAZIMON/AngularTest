@@ -5,13 +5,13 @@
         <input name="id" #customer_id *ngIf="type==='Update'" [disabled]="type==='Update'" type="number" placeholder="id"
             [(ngModel)]="customer.id">
         <br>
-        <input name="first-name" #customer_first_name="ngModel"  type="text"
-            placeholder="first_name" [(ngModel)]="customer.first_name">
+        <input name="firstName" #customer_first_name="ngModel"  type="text"
+            placeholder="firstName" [(ngModel)]="customer.firstName">
         <span *ngIf="customer_first_name.errors?.required && customer_first_name.touched">First-name missing</span>
 
         <br>
-        <input name="last-name" #customer_last_name="ngModel"  type="text"
-            placeholder="last_name" [(ngModel)]="customer.last_name">
+        <input name="lastName" #customer_last_name="ngModel"  type="text"
+            placeholder="lastName" [(ngModel)]="customer.lastName">
 
             <span *ngIf="customer_first_name.errors?.required && customer_first_name.touched">Last-name missing</span>
         
@@ -25,12 +25,9 @@
         <span *ngIf="customer_password.errors?.required && customer_password.touched">Minimal 8 characters is
             required!</span>
         <br>
-        <!-- chek why dont work -->
-<!-- <button [disabled]="!my_form.form.valid || (type==='Update' && !my_form.form.valid ) " (click)="addOrUpdateCustomer()" >Yalla</button> -->
+        
  <button mat-raised-button color="primary" (click)="addOrUpdateCustomer()">Submit</button>
-
-<!-- dont work -->
- <button mat-raised-button color="primary" [routerLink]="['/get-all-customers']">Back</button>
+ <button mat-raised-button color="primary" (click)="goBack()">Back</button>
  
     </form>
 </div> 

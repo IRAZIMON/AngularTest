@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UrlService {
-
-
   public Base_URL = 'http://localhost:';
   public PORT= 8080;
 
@@ -41,5 +39,5 @@ export class UrlService {
     }
 
   }
-
+  
 }
