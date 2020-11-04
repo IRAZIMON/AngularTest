@@ -6,14 +6,15 @@
       <input name="id" #company_id *ngIf="type==='Update'" [disabled]="type==='Update'" type="number" placeholder="id" [(ngModel)]="company.id" >  
         <br>
         <input name="name" #company_name="ngModel" required minlength=2 pattern="^[A-Z].*" type="text" placeholder="name" [(ngModel)]="company.name">
-        <span *ngIf="company_name.errors?.required && company_name.touched">Minimal 2 characters is required!</span>
+        <span *ngIf="company_name.invalid  && company_name.touched">Missing Name</span>
         <span *ngIf="company_name.errors?.pattern">Invalid name - Must start with a capital letter</span>
         <br>
         <input name="email" #company_email="ngModel" required minlength=2 pattern="^[A-Z].*" type="text" placeholder="email" [(ngModel)]="company.email">
-        <span *ngIf="company_email.errors?.required && company_email.touched">Minimal 2 characters is required!</span>
+        <span *ngIf="company_email.invalid && company_email.touched && company_email.errors?.required">Missing Email</span>
         <br>
         <input name="password" #company_password="ngModel" required minlength=8 pattern="^[A-Z].*" type="text" placeholder="password" [(ngModel)]="company.password">
-        <span *ngIf="company_password.errors?.required && company_password.touched">Minimal 8 characters is required!</span>
+        <span *ngIf="company_password.invalid && company_password.touched && company_password.errors?.required">Missing Password</span>
+        <span *ngIf="company_password.errors?.pattern">Invalid password - Must be with a 8 characters</span>
         <br>
         
         <button mat-raised-button color="primary" (click)="addOrUpdateCompany()">Submit</button>

@@ -53,3 +53,10 @@ div {
       width:200px;
 
     }
+
+    span {
+      color: red;
+      margin: 10px;
+      font-size: medium;
+      position: absolute;
+    }

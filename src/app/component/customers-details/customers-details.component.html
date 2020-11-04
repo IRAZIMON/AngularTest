@@ -7,25 +7,28 @@
         <br>
         <input name="firstName" #customer_first_name="ngModel"  type="text"
             placeholder="firstName" [(ngModel)]="customer.firstName">
-        <span *ngIf="customer_first_name.errors?.required && customer_first_name.touched">First-name missing</span>
+            <span *ngIf="customer_first_name.invalid  && customer_first_name.touched">Missing first Name</span>
+            <span *ngIf="customer_first_name.errors?.pattern">Invalid first name - Must start with a capital letter</span>
 
         <br>
         <input name="lastName" #customer_last_name="ngModel"  type="text"
             placeholder="lastName" [(ngModel)]="customer.lastName">
-       <span *ngIf="customer_first_name.errors?.required && customer_first_name.touched">Last-name missing</span>
-        
+            <span *ngIf="customer_last_name.invalid  && customer_last_name.touched">Missing last Name</span>
+            <span *ngIf="customer_last_name.errors?.pattern">Invalid last name - Must start with a capital letter</span>
+
         <br>
         <input name="email" #customer_email="ngModel" required minlength=2 pattern="^[A-Z].*" type="text"
             placeholder="email" [(ngModel)]="customer.email">
-        <span *ngIf="customer_email.errors?.required &&customer_email.touched">Email is missing</span>
+            <span *ngIf="customer_email.invalid && customer_email.touched && customer_email.errors?.required">Missing Email</span>
         <br>
         <input name="password" #customer_password="ngModel" required minlength=8 pattern="^[A-Z].*" type="text"
             placeholder="password" [(ngModel)]="customer.password">
-        <span *ngIf="customer_password.errors?.required && customer_password.touched">Minimal 8 characters is required!</span>
+            <span *ngIf="customer_password.invalid && customer_password.touched && customer_password.errors?.required">Missing Password</span>
+            <span *ngIf="customer_password.errors?.pattern">Invalid password - Must be with a 8 characters</span>
         <br>
         
          <button mat-raised-button color="primary" (click)="addOrUpdateCustomer()">Submit</button>
- <!-- <button mat-raised-button color="primary" (click)="goBack()">Back</button> -->
+         <button mat-raised-button color="primary" [routerLink]="['/get-all-customers/']">Back</button> 
  
     </form>
 </div> 

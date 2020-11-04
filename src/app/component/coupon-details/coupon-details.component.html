@@ -11,7 +11,7 @@
         <label for="first-name">Company-id</label>
         <input name="companyId" #coupon_companyId="ngModel" required min="0" pattern="^(\d+)$" type="number"
             placeholder="Company_id" [(ngModel)]="coupon.companyId">
-        <span *ngIf="coupon_companyId.errors?.required && coupon_companyId.touched">Missing Company-Id</span>
+        <span *ngIf="coupon_companyId.invalid && coupon_companyId.touched">Missing Company-Id</span>
         <span *ngIf="isNegative(coupon_companyId.value)">Company-Id must be a positive value</span>
         <span *ngIf="coupon_companyId.errors?.pattern">Company-Id must be a perfect Number!</span>
 
@@ -27,13 +27,13 @@
             <option>Restaurant</option>
 
         </select>
-        <span *ngIf="coupon_category.errors?.required && coupon_category.touched">Missing category_id</span>
+        <span *ngIf="coupon_category.invalid && coupon_category.touched">Missing Category</span>
 
         <br><br>
         <label for="title">Title</label>
         <input name="title" #coupon_title="ngModel" required minlength=2 type="text" placeholder="Title"
             [(ngModel)]="coupon.title">
-        <span *ngIf="coupon_title.errors?.required && coupon_title.touched">Missing title</span>
+        <span *ngIf="coupon_title.invalid && coupon_title.touched">Missing Title</span>
 
         <br><br>
         <label for="startDate">Start-date</label>
@@ -44,33 +44,33 @@
         <label for="endDate">End-date</label>
         <input name="endDate" #coupon_end_date="ngModel"  type="date"
             placeholder="End-date" [(ngModel)]="coupon.endDate">
-            <span *ngIf="coupon_end_date.errors?.required && coupon_end_date.touched" >Missing End Date</span>
+            <span *ngIf="coupon_end_date.invalid && coupon_end_date.touched" >Missing End Date</span>
         <br><br>
 
         <label for="description">Description</label>
         <input name="description" #coupon_description="ngModel" required minlength=2 type="text"
             placeholder="Description" [(ngModel)]="coupon.description">
-        <span *ngIf="coupon_description.errors?.required && coupon_description.touched">Missing description</span>
+            <span *ngIf="coupon_description.invalid  && coupon_description.touched">Missing Description</span>
 
         <br> <br>
         <label for="amount">Amount</label>
             <input name="amount" #coupon_amount="ngModel" required min="0" pattern="^(\d+)$" type="number"
                 placeholder="Amount" [(ngModel)]="coupon.amount">
-            <span *ngIf="coupon_amount.errors?.required && coupon_amount.touched">Missing Amount</span>
+            <span *ngIf="coupon_amount.invalid && coupon_amount.touched">Missing Amount</span>
             <span *ngIf="isNegative(coupon_amount.value)">Amount must be a positive value</span>
             <span *ngIf="coupon_amount.errors?.pattern">Amount must be a perfect Number!</span>
             <br><br>
             <label for="price">Price</label>
             <input name="price" #coupon_price="ngModel" required min="0" type="number" step="0.5" placeholder="price"
                 [(ngModel)]="coupon.price">
-            <span *ngIf="coupon_price.invalid && coupon_price.touched">Missing price</span>
+            <span *ngIf="coupon_price.invalid && coupon_price.touched">Missing Price</span>
             <span *ngIf="isNegative(coupon_price.value)">Price must be a positive value</span>
             <span *ngIf="coupon_price.errors?.pattern">Price must be a perfect Number!</span>
             <br><br>
             <label for="Image">Image</label>
             <input name="image" #coupon_image="ngModel" type="text" placeholder="image" [(ngModel)]="coupon.image">
 
-            <span *ngIf="coupon_image.errors?.required && coupon_image.touched">Missing image</span>
+            <span *ngIf="coupon_image.invalid && coupon_image.touched">Missing Image</span>
 
             <br><br>
           

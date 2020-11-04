@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'customer', component: CustomerComponent, canActivate: [CustomerProtectorService] },
   { path: 'login', component: LoginComponent },
   { path: 'get-All-Companies', component: GetAllCompaniesComponent },
-  { path: 'get-All-Customers', component: GetAllCustomersComponent },
+  { path: 'get-all-customers', component: GetAllCustomersComponent },
   { path: 'get-All-Coupons', component: GetAllCouponsComponent },
   { path: 'company-details/:id', component: CompanyDetailsComponent },
   { path: 'customer-details/:id', component: CustomersDetailsComponent },

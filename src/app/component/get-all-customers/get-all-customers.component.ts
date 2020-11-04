@@ -65,7 +65,7 @@ updateRow: number;
 
      }
      public goBack():void{
-      this.router.navigate(['login']);
+      this.router.navigate(['admin']);
       }
     }     
 
