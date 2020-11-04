@@ -1,6 +1,7 @@
 
- <app-purchase-coupons>*ngif="getAllCoupCus"</app-purchase-coupons>
+<app-purchase-coupons *ngIf="getAllCoupCus"></app-purchase-coupons>
 
  <button mat-raised-button color="primary" (click)=" customerList()">My Customer Coupons</button>
+ 
  
  

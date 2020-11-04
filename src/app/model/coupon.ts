@@ -1,4 +1,5 @@
 export class Coupon {
+    getTitle: string;
     public constructor(
         public id?: number,
         public companyId?: number,

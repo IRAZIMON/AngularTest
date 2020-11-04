@@ -11,7 +11,10 @@ export class CouponService {
   constructor(private httpClient: HttpClient) { }
 
 
- 
+ public getAllCoupons(){
+  return this.httpClient.get<any>('http://localhost:8080/coupons/get-all/' );
+
+ }
 
 
 

@@ -1,9 +1,11 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { CustomerService } from './../../service/customer.service';
 import { Title } from '@angular/platform-browser';
-import { CustomerService } from 'src/app/service/customer.service';
-import { DataService } from 'src/app/service/data.service';
+import { CustomersDetailsComponent } from './../customers-details/customers-details.component';
+import { Component, OnInit } from '@angular/core';
 import { Coupon } from 'src/app/model/coupon';
+import { Customer } from 'src/app/model/customer';
+import { DataService } from 'src/app/service/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-purchase-coupons',
@@ -11,36 +13,58 @@ import { Coupon } from 'src/app/model/coupon';
   styleUrls: ['./purchase-coupons.component.css']
 })
 export class PurchaseCouponsComponent implements OnInit {
+  private customer: Customer;
+  // private coupon = new Coupon();
   public coupons: Coupon[];
+  coupon: Coupon = new Coupon();
+
+  showOption: string;
+  couponExists: boolean = false;
+
+  logger: any;
   location: any;
-  constructor(private title: Title,
-    private dataService: DataService,
+
+
+  constructor(
+    private title: Title,
     private customerService: CustomerService,
-    private router: Router
-   
-    ) { }
+    private dataService: DataService,
+    private router: Router,
+
+  ) { }
 
   ngOnInit(): void {
 
-    this.title.setTitle('get-All-purchaseCoupons');
-
-     this.customerService.getPurchaseCoupons().subscribe(
-       (coupons) => {
-         this.coupons = coupons;
-      this.dataService.setCoupons(this.coupons);
-
-       },
-       (err) => { alert(err.message); }
-     );
+    this.title.setTitle('purchased coupon')
+    this.customerService.getPurchaseCoupons().subscribe(
+      (coupons) => {
+        this.coupons = coupons;
+        this.dataService.setCoupons(this.coupons);
+      },
+      (err) => {
+        console.log('you have a problem to get all coupons ...')
+      }
+    )
   }
+
+
+ 
+
+ 
+   
+ 
+
+ 
+
+
 
   filterCoupon(category: string): void {
     this.customerService.getPurchaseCoupons().subscribe(
       (coupons) => {
-       
+
         this.coupons = coupons;
-        if(!(category === "all")){
-        this.coupons = this.coupons.filter(coupon => coupon.category.toLowerCase() === category.toLowerCase());
+        if (!(category === "all")) {
+          this.coupons = this.coupons.filter(coupon => coupon.category.toLowerCase() === category.toLowerCase());
         }
         this.dataService.setCoupons(this.coupons);
 
@@ -48,30 +72,22 @@ export class PurchaseCouponsComponent implements OnInit {
       (err) => { alert(err.message); }
     );
   }
-    filterCouponMaxPrice(maxPrice: number ): void {
-      this.customerService.getPurchaseCoupons().subscribe(
-        (coupons) => {
-         
-          this.coupons = coupons;
-          if(maxPrice ){
-          this.coupons = this.coupons.filter(coupon => maxPrice>coupon.price);
-          }
-           this.dataService.setCoupons(this.coupons);
-  
-        },
-        (err) => { alert(err.message); }
-      );
-  }
+  filterCouponMaxPrice(maxPrice: number): void {
+    this.customerService.getPurchaseCoupons().subscribe(
+      (coupons) => {
 
-  getNavigation(link, id){
-    if(id === ''){
-        this.router.navigate([link]);
-    } else {
-        this.router.navigate([link + '/' + id]);
-    }
-}
-public goBack():void{
-  this.location.back();
+        this.coupons = coupons;
+        if (maxPrice) {
+          this.coupons = this.coupons.filter(coupon => maxPrice > coupon.price);
+        }
+        this.dataService.setCoupons(this.coupons);
+
+      },
+      (err) => { alert(err.message); }
+    );
+  }
+  public goBack(): void {
+    this.location.back();
   }
 
 

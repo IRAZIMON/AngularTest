@@ -1,3 +1,9 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.login-btn{
+  position: absolute;
+  right: 3%;
+}
+

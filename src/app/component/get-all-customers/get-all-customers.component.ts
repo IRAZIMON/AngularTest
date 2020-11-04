@@ -27,7 +27,6 @@ updateRow: number;
     private title: Title,
     private dataService: DataService,
     private adminService: AdminService,
-    public dialog: MatDialog,
     private router: Router,
   ) { 
 

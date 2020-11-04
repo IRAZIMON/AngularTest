@@ -12,7 +12,7 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
   }
   customerList(): void {
-    getAllCoupCus: true;
+    this.getAllCoupCus=true;
   }
 }
 

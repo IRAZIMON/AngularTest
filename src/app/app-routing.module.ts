@@ -1,5 +1,7 @@
-
+import { HomeComponent } from './component/home/home.component';
+import { PurchaseCouponDetailsComponent } from './component/purchase-coupon-details/purchase-coupon-details.component';
 import { PurchaseCouponsComponent } from './component/purchase-coupons/purchase-coupons.component';
+
 import { ViewComponent } from './component/view/view.component';
 import { AboutComponent } from './component/about/about.component';
 import { CustomerComponent } from './component/customer/customer.component';
@@ -19,12 +21,12 @@ import { AdminComponent } from './component/admin/admin.component';
 import { CompanyDetailsComponent } from './component/company-details/company-details.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { AddCouponComponent } from './component/add-coupon/add-coupon.component';
+
 
 
 const routes: Routes = [
 
-  // { path: '', component: NavbarComponent, pathMatch: 'full'},
+
   // { path: '**', component: NavbarComponent, pathMatch: 'full' },
 
   { path: 'admin', component: AdminComponent, canActivate: [AdminProtectorService] },
@@ -40,8 +42,9 @@ const routes: Routes = [
   { path: 'coupon-details/:id', component: CouponDetailsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'view/:id', component: ViewComponent },
-  { path: 'purchaseCoupons', component: PurchaseCouponsComponent },
-  // { path: 'addCoupon', component: AddCouponComponent },
+  { path: 'purchase-coupons', component: PurchaseCouponsComponent },
+  { path: 'purchase-details-coupons', component: PurchaseCouponDetailsComponent },
+  { path: '', component:HomeComponent },
 ];
 
 @NgModule({

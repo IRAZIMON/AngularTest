@@ -37,8 +37,8 @@ import { MainComponent } from './component/main/main.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ViewComponent } from './component/view/view.component';
 import { PurchaseCouponsComponent } from './component/purchase-coupons/purchase-coupons.component';
-// import { AddCouponComponent } from './component/add-coupon/add-coupon.component';
-
+import { PurchaseCouponDetailsComponent } from './component/purchase-coupon-details/purchase-coupon-details.component';
+import { HomeComponent } from './component/home/home.component';
 
 
 @NgModule({
@@ -61,8 +61,9 @@ import { PurchaseCouponsComponent } from './component/purchase-coupons/purchase-
     MainComponent,
     ViewComponent,
     PurchaseCouponsComponent,
-    // AddCouponComponent,
-  
+    PurchaseCouponDetailsComponent,
+    HomeComponent,
+    
    
 
   ],

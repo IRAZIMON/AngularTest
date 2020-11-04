@@ -58,7 +58,7 @@ export class CompanyService {
 
     // console.log(sessionStorage.getItem('Authorization'));
    const options = { headers, withCredentials: true};
-   return this.httpClient.get<any>('http://localhost:8080/company/get-company-details/'  ,options);
+   return this.httpClient.get<any>('http://localhost:8080/company/get-company-details/' ,options);
  }
 
 }

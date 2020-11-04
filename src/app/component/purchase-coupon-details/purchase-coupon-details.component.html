@@ -1,0 +1,46 @@
+
+ <div *ngIf="coupons">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>companyId</th>
+            <th>category</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>startDate</th>
+            <th>endDate</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Action</th>
+
+
+        </tr>
+        <tr *ngFor="let c of coupons">
+            <td>{{c.id}}</td>
+            <td>{{c.companyId}}</td>
+            <td>{{c.category}}</td>
+            <td>{{c.title}}</td>
+            <td>{{c.description}}</td>
+            <td>{{c.startDate}}</td>
+            <td>{{c.endDate}}</td>
+            <td>{{c.amount}}</td>
+            <td>{{c.price}}</td>
+            <td>{{c.image}}</td>
+            <td> <button mat-raised-button color="primary" (click)=" addPurchaseCoupon(c)">Buy Coupon</button></td>
+            <td>
+    </table>
+ </div>
+
+
+
+          
+       
+          
+            <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+ 
+            
+   
+
+
+                

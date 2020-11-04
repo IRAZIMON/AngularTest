@@ -12,6 +12,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./customers-details.component.css']
 })
 export class CustomersDetailsComponent implements OnInit {
+  getPurchasedCoupons() {
+    throw new Error('Method not implemented.');
+  }
+  addpurchaseCoupon(coupon: any) {
+    throw new Error('Method not implemented.');
+  }
   public customer = new Customer();
   submitForm: FormGroup;
   public type: string = 'Add';
