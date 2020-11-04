@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,9 +13,13 @@ getAllcus:boolean;
 
   
 
-  constructor() { }
+  constructor(
+    private title:Title,
+  ) { }
 
   ngOnInit(): void {
+    this.title.setTitle('admin')
+
   }
 
 

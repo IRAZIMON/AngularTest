@@ -14,12 +14,11 @@ import { DataService } from 'src/app/service/data.service';
 })
 export class PurchaseCouponDetailsComponent implements OnInit {
   private customer: Customer;
-  // private coupon = new Coupon();
   public coupons: Coupon[];
   coupon: Coupon = new Coupon();
-  logger: any;
   id: number;
   location: any;
+
 
   constructor(
     private title: Title,
@@ -27,43 +26,39 @@ export class PurchaseCouponDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private dataService: DataService,
-    private couponService: CouponService
-
+    private couponService: CouponService,   
 
   ) { this.id = Number(activatedRoute.snapshot.params.id); }
 
   ngOnInit(): void {
+    this.title.setTitle('purchase-coupons-details')
    this.getAllCoupons();
   }
   addPurchaseCoupon(coupon: Coupon) {
     this.customerService.addPurchaseCoupon(coupon).subscribe(
       (res) => {
         alert("Your porches succeeded");
-
-        this.logger.info("coupon: '" + coupon.getTitle + "' purchased by customer: '" + this.customer.getName + "'");
       },
       (err) => {
    alert("Your porches failed");
-        this.logger.error("customer: '" + this.customer.getName + "' failed to purchase coupon: '" + coupon.getTitle + "'")
+       
       }
 
     );
 
   }
 
-
-
   public getAllCoupons() {
     this.couponService.getAllCoupons().subscribe(
       (res) => { this.coupons = res },
-
       (err) => { console.log('err') }
     )
   }
 
-  public goBack(): void {
-    this.location.back();
+  public goBack(): void {  
+      this.router.navigate(['purchase-coupons']);
+  }
   }
 
 
-}
+

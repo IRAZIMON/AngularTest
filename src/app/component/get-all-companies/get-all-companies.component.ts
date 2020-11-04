@@ -23,7 +23,7 @@ export class GetAllCompaniesComponent implements OnInit{
     private router : Router) { }
 
     ngOnInit(): void {
-      this.title.setTitle('Get-All-Companies');
+      this.title.setTitle('get-All-Companies');
   
       this.adminService.getCompanies().subscribe(
          (companies)  => { this.companies = companies;
@@ -57,9 +57,9 @@ export class GetAllCompaniesComponent implements OnInit{
         }
       
    
-      public goBack():void{
-        this.location.back();
-        }
+        public goBack():void{
+          this.router.navigate(['login']);
+          }
     }
      
    

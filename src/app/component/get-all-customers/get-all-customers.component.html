@@ -17,8 +17,6 @@
             <td>{{c.email}}</td>
             <td>{{c.password}}</td>      
             <td>
-                
-                <mat-icon (click)="getNavigation('view', c.id)">account_box</mat-icon>
                 <mat-icon fxFlex="10%" [routerLink]="['/customer-details/'+c.id]" routerLinkActive="router-link-active">mode_edit</mat-icon>
                 <mat-icon fxFlex="10%" (click)="deleteCustomer(c.id)">delete</mat-icon>
         </tr>
@@ -27,4 +25,6 @@
     <button mat-raised-button color="accent" [routerLink]="['/customer-details/'+0]"
         routerLinkActive="router-link-active">Add Customer</button>
         <span class="example-spacer"></span>
-
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+        <span class="example-spacer"></span>

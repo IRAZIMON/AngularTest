@@ -14,13 +14,8 @@ import { Router } from '@angular/router';
 })
 export class PurchaseCouponsComponent implements OnInit {
   private customer: Customer;
-  // private coupon = new Coupon();
   public coupons: Coupon[];
   coupon: Coupon = new Coupon();
-
-  showOption: string;
-  couponExists: boolean = false;
-
   logger: any;
   location: any;
 
@@ -46,15 +41,6 @@ export class PurchaseCouponsComponent implements OnInit {
       }
     )
   }
-
-
- 
-
- 
-   
- 
-
- 
 
 
 
@@ -87,7 +73,7 @@ export class PurchaseCouponsComponent implements OnInit {
     );
   }
   public goBack(): void {
-    this.location.back();
+    this.router.navigate(['login']);
   }
 
 

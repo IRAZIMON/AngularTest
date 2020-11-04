@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Credentials } from './../../model/Credentials';
 
 
@@ -16,16 +17,15 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
+public credentials = new Credentials();
 
-
-
-  public credentials = new Credentials();
-
-
-
-  public constructor(private router: Router, private loginService: LoginService) { }
+  public constructor(private router: Router, 
+    private loginService: LoginService,
+    private title:Title
+    ) { }
 
   ngOnInit(): void {
+    this.title.setTitle('login')
   }
   public loginToServer(): void {
     this.loginService.loginRequest(this.credentials).subscribe(

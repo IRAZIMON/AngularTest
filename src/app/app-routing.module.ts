@@ -1,7 +1,7 @@
+import { Page404Component } from './component/page404/page404.component';
 import { HomeComponent } from './component/home/home.component';
 import { PurchaseCouponDetailsComponent } from './component/purchase-coupon-details/purchase-coupon-details.component';
 import { PurchaseCouponsComponent } from './component/purchase-coupons/purchase-coupons.component';
-
 import { ViewComponent } from './component/view/view.component';
 import { AboutComponent } from './component/about/about.component';
 import { CustomerComponent } from './component/customer/customer.component';
@@ -14,7 +14,6 @@ import { GetAllCompaniesComponent } from './component/get-all-companies/get-all-
 import { CustomerProtectorService } from './service/customer-protector.service';
 import { AdminProtectorService } from './service/admin-protector.service';
 import { CompanyProtectorService } from './service/company-protector.service';
-import { LogoutComponent } from './component/logout/logout.component';
 import { LoginComponent } from './component/login/login.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { AdminComponent } from './component/admin/admin.component';
@@ -26,14 +25,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 
-
-  // { path: '**', component: NavbarComponent, pathMatch: 'full' },
-
   { path: 'admin', component: AdminComponent, canActivate: [AdminProtectorService] },
   { path: 'company', component: CompanyComponent, canActivate: [CompanyProtectorService] },
   { path: 'customer', component: CustomerComponent, canActivate: [CustomerProtectorService] },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
   { path: 'get-All-Companies', component: GetAllCompaniesComponent },
   { path: 'get-All-Customers', component: GetAllCustomersComponent },
   { path: 'get-All-Coupons', component: GetAllCouponsComponent },
@@ -45,6 +40,7 @@ const routes: Routes = [
   { path: 'purchase-coupons', component: PurchaseCouponsComponent },
   { path: 'purchase-details-coupons', component: PurchaseCouponDetailsComponent },
   { path: '', component:HomeComponent },
+  { path: '**', component: Page404Component, pathMatch: 'full' },
 ];
 
 @NgModule({

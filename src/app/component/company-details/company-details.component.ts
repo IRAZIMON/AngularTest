@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { AdminService } from './../../service/admin.service';
 import { Company } from './../../model/company';
 import { CompanyService } from './../../service/company.service';
@@ -20,12 +21,15 @@ export class CompanyDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private adminService: AdminService,
     private router: Router,
-    private dataService: DataService) {
-  
+    private dataService: DataService,
+    private title:Title){
 
      this.id = Number(activatedRoute.snapshot.params.id);}
 
   ngOnInit(): void {
+
+    this.title.setTitle('company-details')
+
     if (this.id !== 0) {
       this.type = 'Update';
       this.company.id = this.id;

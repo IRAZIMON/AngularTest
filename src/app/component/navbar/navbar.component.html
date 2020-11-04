@@ -4,22 +4,13 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span>CouponZ</span>
-    <!-- <span class="example-spacer"></span> -->
+  
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
    </button>
     <button  *ngIf="isLoggedIn" mat-raised-button color="primary" [routerLink]="['/about']" >About</button>
     <span class="example-spacer"></span>
-   <!-- <ng-container *ngIf= "isLoggedIn; then thenTemplate ;else elseTemplate"></ng-container>
-    <ng-template #thenTemplate>
-    <button mat-raised-button color="warn" (click)="logOutDialog()">Logout</button>
-    </ng-template>
-    <ng-template #elseTemplate>
-      <button mat-raised-button color="warn" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</button>
-    </ng-template>
- -->
-
-       <!-- <button mat-raised-button color="warn">Login</button> -->  
-    <!-- </ng-template> -->
+   
+  
     <span class="example-spacer"></span>
    
     <button mat-raised-button color="warn"  *ngIf="!isLoggedIn()" (click)="login()">Login</button>

@@ -20,7 +20,6 @@ import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './component/login/login.component';
-import { LogoutComponent } from './component/logout/logout.component';
 import { GetAllCompaniesComponent } from './component/get-all-companies/get-all-companies.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { GetAllCustomersComponent } from './component/get-all-customers/get-all-customers.component';
@@ -33,12 +32,12 @@ import { CustomerComponent } from './component/customer/customer.component';
 import { CompanyComponent } from './component/company/company.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { AboutComponent } from './component/about/about.component';
-import { MainComponent } from './component/main/main.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ViewComponent } from './component/view/view.component';
 import { PurchaseCouponsComponent } from './component/purchase-coupons/purchase-coupons.component';
 import { PurchaseCouponDetailsComponent } from './component/purchase-coupon-details/purchase-coupon-details.component';
 import { HomeComponent } from './component/home/home.component';
+import { Page404Component } from './component/page404/page404.component';
 
 
 @NgModule({
@@ -47,7 +46,6 @@ import { HomeComponent } from './component/home/home.component';
     CompanyDetailsComponent,
     NavbarComponent,
      LoginComponent,
-    LogoutComponent,
      GetAllCompaniesComponent,
     GetAllCustomersComponent,
     CustomersDetailsComponent,
@@ -58,11 +56,11 @@ import { HomeComponent } from './component/home/home.component';
     CompanyComponent,
     FooterComponent,
     AboutComponent,
-    MainComponent,
     ViewComponent,
     PurchaseCouponsComponent,
     PurchaseCouponDetailsComponent,
     HomeComponent,
+    Page404Component,
     
    
 

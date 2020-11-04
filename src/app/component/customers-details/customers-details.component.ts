@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-customers-details',
@@ -12,34 +13,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./customers-details.component.css']
 })
 export class CustomersDetailsComponent implements OnInit {
-  getPurchasedCoupons() {
-    throw new Error('Method not implemented.');
-  }
-  addpurchaseCoupon(coupon: any) {
-    throw new Error('Method not implemented.');
-  }
+ 
   public customer = new Customer();
-  submitForm: FormGroup;
   public type: string = 'Add';
   public id: number;
   location: any;
-
-
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private adminService: AdminService,
     private router: Router,
     private dataService: DataService,
-    private formBuilder: FormBuilder) {
-
-
+    private title:Title) {
     this.id = Number(activatedRoute.snapshot.params.id);
   }
   ngOnInit() {
-    
 
- 
+    this.title.setTitle('customer-details')
     if (this.id !== 0) {
       this.type = 'Update';
       this.customer.id = this.id;
@@ -53,7 +43,6 @@ export class CustomersDetailsComponent implements OnInit {
 
 
   public addOrUpdateCustomer(): void {
-
     alert(this.customer.firstName + ' ' + this.customer.lastName+ ' ' + this.customer.email + ' ' + this.customer.password);
     alert(JSON.stringify(this.customer));
     if (this.id === 0) {
@@ -66,12 +55,13 @@ export class CustomersDetailsComponent implements OnInit {
         (res) => { alert('Customer Updated'); },
         (err) => { alert(err.message); });
     }
-
-     this.router.navigateByUrl('/get-all-customers');
+    
 
   }
 
-  public goBack():void{
-    this.location.back();
-    }
-}
+
+//      public goBack():void{
+//       this.router.navigate('/get-All-Customers');
+//       }
+ }
+

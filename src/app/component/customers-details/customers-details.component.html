@@ -12,8 +12,7 @@
         <br>
         <input name="lastName" #customer_last_name="ngModel"  type="text"
             placeholder="lastName" [(ngModel)]="customer.lastName">
-
-            <span *ngIf="customer_first_name.errors?.required && customer_first_name.touched">Last-name missing</span>
+       <span *ngIf="customer_first_name.errors?.required && customer_first_name.touched">Last-name missing</span>
         
         <br>
         <input name="email" #customer_email="ngModel" required minlength=2 pattern="^[A-Z].*" type="text"
@@ -22,12 +21,11 @@
         <br>
         <input name="password" #customer_password="ngModel" required minlength=8 pattern="^[A-Z].*" type="text"
             placeholder="password" [(ngModel)]="customer.password">
-        <span *ngIf="customer_password.errors?.required && customer_password.touched">Minimal 8 characters is
-            required!</span>
+        <span *ngIf="customer_password.errors?.required && customer_password.touched">Minimal 8 characters is required!</span>
         <br>
         
- <button mat-raised-button color="primary" (click)="addOrUpdateCustomer()">Submit</button>
- <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+         <button mat-raised-button color="primary" (click)="addOrUpdateCustomer()">Submit</button>
+ <!-- <button mat-raised-button color="primary" (click)="goBack()">Back</button> -->
  
     </form>
 </div> 

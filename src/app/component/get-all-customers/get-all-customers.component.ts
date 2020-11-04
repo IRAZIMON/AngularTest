@@ -32,7 +32,7 @@ updateRow: number;
 
 }
   ngOnInit(): void {
-    this.title.setTitle('Get-All-Customers');
+    this.title.setTitle('get-All-Customers');
 
     this.adminService.getCustomers().subscribe(
        (customers)  => { this.customers = customers;
@@ -42,12 +42,7 @@ updateRow: number;
          (err) => { alert(err.message); }
        );
      }
-    
   
-   
-     //public update(Customer(): void {
-       //   alert('Update Customer');
-       // }
      
       public deleteCustomer(id: number): void {
         const action = confirm('Are you sure you want to delete  this customer' + id + '?');
@@ -69,7 +64,9 @@ updateRow: number;
           }
 
      }
-        
+     public goBack():void{
+      this.router.navigate(['login']);
+      }
     }     
 
 

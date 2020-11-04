@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
   getAllCoupCus: boolean;
-  constructor() { }
+  constructor( private title:Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('customerCoupons')
   }
   customerList(): void {
     this.getAllCoupCus=true;

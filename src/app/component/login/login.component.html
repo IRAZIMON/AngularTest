@@ -6,15 +6,12 @@
        <img src="assets/images/images.png">
    
     <input #email_input="ngModel" type="email" required email placeholder="email" name="email" [(ngModel)]="credentials.email">
-    <span *ngIf="email_input.touched && email_input.errors?.required" >Missing Email</span>
-    <span *ngIf="email_input.touched && email_input.errors?.email">Invalid Email</span>
-        
+    <span *ngIf="email_input.invalid && email_input.touched &&email_input.errors?.required " >Missing Email</span>
     <br><br>
   
     <input #password_input="ngModel" type="password" 
     required placeholder="password" name="password" [(ngModel)]="credentials.password">
-    <span *ngIf="password_input.touched && password_input.errors?.required" >Missing Password</span>
- 
+    <span *ngIf="password_input.invalid && password_input.touched && password_input.errors?.required">Missing Password</span>
     <br><br> 
     <label for="type">Choose Type</label>
 
@@ -24,7 +21,7 @@
         <option>Customer</option>
         <option>Company</option>
     </select>
-    <span *ngIf="type_input.touched && type_input.errors?.required"> Please choose Type</span>
+    <span *ngIf="type_input.invalid && type_input.touched"> Please choose Type</span>
     <br><br>
     <button mat-raised-button color="warn"(click)="loginToServer()">Login</button>
 

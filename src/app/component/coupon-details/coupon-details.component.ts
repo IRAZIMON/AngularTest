@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Company } from './../../model/company';
 import { CompanyService } from 'src/app/service/company.service';
 import { CouponService } from './../../service/coupon.service';
@@ -23,7 +24,8 @@ export class CouponDetailsComponent implements OnInit {
     private companyService: CompanyService,
     private router: Router,
     private dataService: DataService,
-    private location: Location
+    private location: Location,
+    private title:Title
     ) {
 
 
@@ -31,6 +33,7 @@ export class CouponDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle('coupon-details')
     if (this.id !== 0) {
       this.type = 'Update';
       this.coupon.id = this.id;
@@ -65,9 +68,10 @@ this.location.back();
         (res) => { alert('Coupon Updated'); },
         (err) => { alert(err.message); });
     }
-
-
+    
   }
+
+
   navigate(): void {
     this.router.navigateByUrl('/get-all-coupons');
   }

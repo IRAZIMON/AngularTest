@@ -15,13 +15,15 @@
             <td>{{c.name}}</td>
             <td>{{c.email}}</td>
             <td>{{c.password}}</td>
-            <td>      <mat-icon (click)="getNavigation('view', c.id)">account_box</mat-icon>
+            <td>      
                 <mat-icon fxFlex="10%" [routerLink]="['/company-details/'+c.id]" routerLinkActive="router-link-active">mode_edit</mat-icon>
-                <mat-icon fxFlex="10%" (click)="deleteCompany(c.id)">delete</mat-icon>
+                <mat-icon fxFlex="10%" (click)="deleteCompany(c.id)">delete</mat-icon></td>
         </tr>
     </table>
     <br>
     <button mat-raised-button color="accent" [routerLink]="['/company-details/'+0]"
         routerLinkActive="router-link-active">Add Company</button>
         <span class="example-spacer"></span>
-
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+        <span class="example-spacer"></span>

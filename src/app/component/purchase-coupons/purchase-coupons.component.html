@@ -1,5 +1,5 @@
 
-  <h1>Coupon</h1>
+  <h1>My Coupons</h1>
 
   <div *ngIf="coupons">
       <table>
@@ -14,7 +14,7 @@
               <th>Amount</th>
               <th>Price</th>
               <th>Image</th>
-              <th>Action</th>
+            
   
   
           </tr>
@@ -53,17 +53,10 @@
           <input type="text" placeholder= price #maxPrice (change)="filterCouponMaxPrice(maxPrice.value)">
           <span class="example-spacer"></span>
           
-          
-          
           <span class="example-spacer"></span>
           <button mat-raised-button color="primary" (click)="goBack()">Back</button>
           <span class="example-spacer"></span>
   </div>
-
-<!-- <div class="modal-body text-center">
-  <button class="btn btn-primary btn-lg text-center" (click)="addPurchaseCoupon()" [disabled]="couponExists">Buy Coupon</button>
-  <span class="example-spacer"></span> -->
-  
 
 
 
