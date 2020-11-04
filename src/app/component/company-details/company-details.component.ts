@@ -60,7 +60,7 @@ export class CompanyDetailsComponent implements OnInit {
 
   }
   public goBack():void{
-    this.location.back();
+    this.router.navigate(['get-All-Companies']);
     }
 
   }

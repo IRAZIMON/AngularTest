@@ -68,15 +68,14 @@
             <span *ngIf="coupon_price.errors?.pattern">Price must be a perfect Number!</span>
             <br><br>
             <label for="Image">Image</label>
-            <input name="image" #coupon_image="ngModel" type="text" placeholder="image" [(ngModel)]="coupon.image">
-
-            <span *ngIf="coupon_image.invalid && coupon_image.touched">Missing Image</span>
+            <input name="image" #coupon_image="ngModel" type="text" placeholder="image" [(ngModel)]="coupon.image"> 
+             <span *ngIf="coupon_image.invalid && coupon_image.touched">Missing Image</span> 
 
             <br><br>
           
             <button mat-raised-button color="primary" (click)="addOrUpdateCoupon()">Submit</button>
           
-            <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+            <button mat-raised-button color="accent" (click)="goBack()">Back</button>
  
             
     </form>

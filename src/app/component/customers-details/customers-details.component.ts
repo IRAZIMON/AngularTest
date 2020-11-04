@@ -60,8 +60,8 @@ export class CustomersDetailsComponent implements OnInit {
   }
 
 
-//  public goBack():void{
-//  this.router.navigate('/get-All-Customers');
-//    }
+  public goBack():void{
+    this.router.navigate(['get-all-customers']);
+    }
  }
 

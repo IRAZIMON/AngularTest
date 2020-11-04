@@ -36,11 +36,12 @@ const routes: Routes = [
   { path: 'customer-details/:id', component: CustomersDetailsComponent },
   { path: 'coupon-details/:id', component: CouponDetailsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'view/:id', component: ViewComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'purchase-coupons', component: PurchaseCouponsComponent },
   { path: 'purchase-details-coupons', component: PurchaseCouponDetailsComponent },
   { path: '', component:HomeComponent },
   { path: '**', component: Page404Component, pathMatch: 'full' },
+
 ];
 
 @NgModule({

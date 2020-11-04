@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,6 +16,7 @@ getAllcus:boolean;
 
   constructor(
     private title:Title,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +36,10 @@ getAllcus:boolean;
     this.getAllcus=true;
     this.getAllcom=false;
       }
-     
+      public goBack():void{
+        this.router.navigate(['/home']);
+        }
+    
 
 }
 

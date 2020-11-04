@@ -2,7 +2,11 @@
 <app-get-all-companies *ngIf="getAllcom"></app-get-all-companies>
 <app-get-all-customers *ngIf="getAllcus"></app-get-all-customers>
 
+<h1>My Clients</h1>
 
+<br>
 <button mat-raised-button color="primary"(click)="getAllComButten()">Companies</button>
  
  <button mat-raised-button color="primary"(click)="getAllCusButten()">Customers</button>
+
+ <button mat-raised-button color="accent" (click)="goBack()">Back</button>

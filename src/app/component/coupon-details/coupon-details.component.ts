@@ -48,10 +48,6 @@ export class CouponDetailsComponent implements OnInit {
       console.log(this.companyID)
   }
 
-public goBack():void{
-this.location.back();
-}
-
 
 
   public addOrUpdateCoupon(): void {
@@ -82,7 +78,10 @@ this.location.back();
     return (Number(any) < 0);
   }
 
-
+ 
+  public goBack():void{
+    this.router.navigate(['/get-all-coupons']);
+    }
 
 
 }
