@@ -80,7 +80,7 @@ export class CouponDetailsComponent implements OnInit {
 
  
   public goBack():void{
-    this.router.navigate(['/get-all-coupons']);
+    this.router.navigate(['/get-All-Coupons']);
     }
 
 

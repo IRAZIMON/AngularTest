@@ -42,7 +42,9 @@ public credentials = new Credentials();
       (err) => {console.log(err.message); });
   }
 
-
+  public goBack():void{
+    this.router.navigate(['admin']);
+    }
 
 
 
