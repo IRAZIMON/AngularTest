@@ -1,6 +1,5 @@
 
 
-
 <div>
     <h3>My Coupon</h3>
     <form #my_form="ngForm">
@@ -39,7 +38,7 @@
         <label for="startDate">Start-date</label>
         <input name="startDate" #coupon_start_date="ngModel"  type="date"
             placeholder="Start-date" [(ngModel)]="coupon.startDate">
-        <span *ngIf="coupon_start_date.errors?.required && coupon_start_date.touched" >Missing End Date</span>
+        <span *ngIf="coupon_start_date.errors?.required && coupon_start_date.touched" >Missing Start Date</span>
         <br><br>
         <label for="endDate">End-date</label>
         <input name="endDate" #coupon_end_date="ngModel"  type="date"

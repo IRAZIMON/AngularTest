@@ -86,8 +86,6 @@ export class GetAllCouponsComponent implements OnInit {
         this.router.navigate([link + '/' + id]);
     }
 }
-
-    // let's call our modal window
    
     public goBack():void{
       this.router.navigate(['home']);

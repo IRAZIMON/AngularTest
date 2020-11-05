@@ -36,9 +36,10 @@ getAllcus:boolean;
     this.getAllcus=true;
     this.getAllcom=false;
       }
-      public goBack():void{
-        this.router.navigate(['/home']);
-        }
+
+   public goBack():void{
+    this.router.navigate(['/home']);
+     }
     
 
 }

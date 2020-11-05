@@ -25,9 +25,7 @@ export class CompanyComponent implements OnInit {
   this.title.setTitle('companyCoupons')
   }
 
-  public add():void{
 
-  }
   getAllCouponButten():void {
 
     this.getAllcoup=true;

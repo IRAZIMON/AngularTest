@@ -55,6 +55,37 @@ export class PurchaseCouponDetailsComponent implements OnInit {
     )
   }
 
+  filterCoupon(category: string): void {
+    this.customerService.getPurchaseCoupons().subscribe(
+      (coupons) => {
+
+        this.coupons = coupons;
+        if (!(category === "all")) {
+          this.coupons = this.coupons.filter(coupon => coupon.category.toLowerCase() === category.toLowerCase());
+        }
+        this.dataService.setCoupons(this.coupons);
+
+      },
+      (err) => { alert(err.message); }
+    );
+  }
+  filterCouponMaxPrice(maxPrice: number): void {
+    this.customerService.getPurchaseCoupons().subscribe(
+      (coupons) => {
+
+        this.coupons = coupons;
+        if (maxPrice) {
+          this.coupons = this.coupons.filter(coupon => maxPrice > coupon.price);
+        }
+        this.dataService.setCoupons(this.coupons);
+
+      },
+      (err) => { alert(err.message); }
+    );
+
+    }
+
+
   public goBack(): void {  
       this.router.navigate(['purchase-coupons']);
   }
