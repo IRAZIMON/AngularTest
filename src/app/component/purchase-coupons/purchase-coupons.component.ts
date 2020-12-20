@@ -76,6 +76,6 @@ export class PurchaseCouponsComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-cd 
+
 
 }
