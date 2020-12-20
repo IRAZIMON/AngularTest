@@ -115,12 +115,7 @@ public getCompanies(): Observable<Company[]>{
     
   }
 
-  // maybe deleted -check if used 
-//   public getOneCustomer(customerID: number): Observable<Customer> {
-//     return this.httpClient.get<Customer>('../../../assets/json/get-one-customer.json', { withCredentials: true });
-
-// }
-
+ 
 
 }
 

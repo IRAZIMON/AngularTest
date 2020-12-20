@@ -42,6 +42,6 @@ export class DataService {
 }
 
 public setLoggedIn(flag: boolean){
-  this.isLoggedIn = flag;;
+  this.isLoggedIn = flag;
 }
 }
