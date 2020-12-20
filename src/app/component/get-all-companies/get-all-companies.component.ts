@@ -13,6 +13,9 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./get-all-companies.component.css']
 })
 export class GetAllCompaniesComponent implements OnInit{
+  static ngOnInit(): null {
+    throw new Error('Method not implemented.');
+  }
   public companies: Company[];
   dataSource: MatTableDataSource<Company[]>;
   location: any;
@@ -43,6 +46,9 @@ export class GetAllCompaniesComponent implements OnInit{
    
   
     }
+
+   
+    
        public deleteCompany(id: number): void {
         const action = confirm('Are you sure you want to delete this company ' + id + '?');
          if (action) {

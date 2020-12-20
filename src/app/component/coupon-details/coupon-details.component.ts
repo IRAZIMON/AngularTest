@@ -56,12 +56,18 @@ export class CouponDetailsComponent implements OnInit {
     alert(JSON.stringify(this.coupon));
     if (this.id === 0) {
       this.companyService.addCoupon(this.coupon).subscribe(
-
-        (res) => { alert('Coupon Added'); },
+        (res) => { alert('Coupon Added'); 
+        let couponIndex = this.dataService.coupons.findIndex(c => c.id === this.coupon.id);
+        this.dataService.coupons.splice(couponIndex,1,this.coupon);
+       },
         (err) => { alert(err); });
     } else {
       this.companyService.updateCoupon(this.coupon).subscribe(
-        (res) => { alert('Coupon Updated'); },
+        (res) => { alert('Coupon Updated'); 
+        let couponIndex = this.dataService.coupons.findIndex(c => c.id === this.coupon.id);
+        this.dataService.coupons.splice(couponIndex,1,this.coupon);
+      
+      },
         (err) => { alert(err.message); });
     }
     

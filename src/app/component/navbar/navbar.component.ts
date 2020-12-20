@@ -47,9 +47,7 @@ export class NavbarComponent implements OnInit {
     
     
      
-    //  public About():void{
-    //     this.router.navigateByUrl('about');
-    //   }
+   
       }
 
      

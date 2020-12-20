@@ -5,6 +5,7 @@ import { CompanyService } from './../../service/company.service';
 import { DataService } from './../../service/data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GetAllCompaniesComponent } from '../get-all-companies/get-all-companies.component';
 
 @Component({
   selector: 'app-company-details',
@@ -18,6 +19,7 @@ export class CompanyDetailsComponent implements OnInit {
   location: any;
 
   constructor(
+   
     private activatedRoute: ActivatedRoute,
     private adminService: AdminService,
     private router: Router,
@@ -48,13 +50,22 @@ export class CompanyDetailsComponent implements OnInit {
     alert(JSON.stringify(this.company));
     if (this.id === 0) {
       this.adminService.addCompany(this.company).subscribe(
-        (res) => { alert('Company Added'); },
+        (res) => { alert('Company Added');
+         let companyIndex = this.dataService.companies.findIndex(c => c.id === this.company.id);
+         this.dataService.companies.splice(companyIndex,1,this.company);
+       },
         (err) => { alert(err.message); });
     } else {
       this.adminService.updateCompany(this.company).subscribe(
-        (res) => { alert('Company Updated'); },
+        (res) => { alert('Company Updated'); 
+         let companyIndex = this.dataService.companies.findIndex(c => c.id === this.company.id);
+         this.dataService.companies.splice(companyIndex,1,this.company);
+      },
         (err) => { alert(err.message); });
+        
     }
+
+   
     this.router.navigateByUrl('/get-All-Companies');
   
 

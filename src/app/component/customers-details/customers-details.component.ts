@@ -48,11 +48,17 @@ export class CustomersDetailsComponent implements OnInit {
     if (this.id === 0) {
       this.adminService.addCustomer(this.customer).subscribe(
       
-        (res) => { alert('Customer Added'); },
+        (res) => { alert('Customer Added'); 
+        let customerIndex = this.dataService.customers.findIndex(c => c.id === this.customer.id);
+        this.dataService.customers.splice(customerIndex,1,this.customer); 
+      },
         (err) => { alert(err.message); });
     } else {
       this.adminService.updateCustomer(this.customer).subscribe(
-        (res) => { alert('Customer Updated'); },
+        (res) => { alert('Customer Updated'); 
+        let customerIndex = this.dataService.customers.findIndex(c => c.id === this.customer.id);
+        this.dataService.customers.splice(customerIndex,1,this.customer);
+       },
         (err) => { alert(err.message); });
     }
     

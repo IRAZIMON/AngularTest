@@ -1,3 +1,4 @@
+import { GetAllCompaniesComponent } from './../component/get-all-companies/get-all-companies.component';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -53,6 +54,7 @@ public getCompanies(): Observable<Company[]>{
     );
    const options = { headers, withCredentials: true};
    return this.httpClient.get<Company[]>('http://localhost:8080/admin/get-all-companies', options);
+
 }
 
   public getCompanyById(id: number): Observable<any> {
