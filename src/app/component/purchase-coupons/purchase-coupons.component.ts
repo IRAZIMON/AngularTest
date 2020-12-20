@@ -73,9 +73,9 @@ export class PurchaseCouponsComponent implements OnInit {
     );
   }
   public goBack(): void {
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 
-
+cd 
 
 }
